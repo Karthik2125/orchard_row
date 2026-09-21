@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orchard Row — Fruit Ledger</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="burstLayer" class="burst-layer" aria-hidden="true"></div>
+
+<main class="board">
+
+  <header class="board__header">
+    <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+      <path class="mark__stem" d="M24 6c0 4-2 7-2 7" />
+      <path class="mark__leaf" d="M22 9c4-3 9-1 9 3-4 1-7-1-9-3z" />
+      <path class="mark__fruit" d="M24 13c9 0 15 7 15 15s-6 15-15 15S9 37 9 28c0-7 4-12 9-14-1 3 0 5 0 5s3-1 6 1z" />
+    </svg>
+    <div class="board__title">
+      <h1>Orchard Row</h1>
+      <p class="board__subtitle">A running tally of what's on the stand today.</p>
+    </div>
+  </header>
+
+  <section class="panel" aria-labelledby="search-heading">
+    <h2 id="search-heading" class="panel__title">Fruit search</h2>
+    <div class="panel__row">
+      <select id="searchSelect" class="input select" aria-label="Choose a fruit to find"></select>
+      <button id="connectBtn" class="btn btn--connect" type="button">Connect</button>
+    </div>
+    <p id="connectStatus" class="status" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="panel" aria-labelledby="add-heading">
+    <h2 id="add-heading" class="panel__title">Add a fruit</h2>
+    <div class="panel__row">
+      <input id="addInput" class="input" type="text" placeholder="Type a fruit name" autocomplete="off">
+      <button id="addBtn" class="btn btn--add" type="button">Add</button>
+    </div>
+    <p id="addStatus" class="status" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="panel" aria-labelledby="replace-heading">
+    <h2 id="replace-heading" class="panel__title">Replace a fruit</h2>
+    <div class="panel__row panel__row--replace">
+      <select id="replaceSelect" class="input select" aria-label="Fruit to replace"></select>
+      <span class="swap" aria-hidden="true">&#8644;</span>
+      <input id="replaceInput" class="input" type="text" placeholder="New name" autocomplete="off">
+      <button id="replaceBtn" class="btn btn--replace" type="button">Replace</button>
+    </div>
+    <p id="replaceStatus" class="status" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="panel panel--table" aria-labelledby="table-heading">
+    <h2 id="table-heading" class="panel__title">On the stand</h2>
+    <table class="ledger">
+      <thead>
+        <tr>
+          <th scope="col" class="ledger__pos">Position</th>
+          <th scope="col">Fruits</th>
+        </tr>
+      </thead>
+      <tbody id="ledgerBody">
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
